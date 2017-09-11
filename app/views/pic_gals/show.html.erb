@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @pic_gal.title %>
+</p>
+
+<p>
+  <strong>Img:</strong><br>
+  <%= image_tag @pic_gal.img.url(:medium) %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @pic_gal.notes %>
+</p>
+
+<%= link_to 'Edit', edit_pic_gal_path(@pic_gal) %> |
+<%= link_to 'Back', pic_gals_path %>

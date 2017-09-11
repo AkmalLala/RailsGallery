@@ -1,0 +1,63 @@
+<!-- <div class="container">
+  <div class="row">
+    <% n = 0 %>
+    <% @pic_gals.each do |p| %>
+      <div class="column">
+        <%= image_tag p.img.url, class: 'img-responsive hover-shadow', onclick: "openModal();currentSlide(#{n+=1})" %>
+      </div>
+    <% end %>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <section id="pinBoot">
+
+      <% n = 0 %>
+      <% @pic_gals.each do |p| %>
+        <article class="white-panel">
+        <%= image_tag p.img.url, class: 'img-responsive hover-shadow', onclick: "openModal();currentSlide(#{n+=1})" %>
+          <h4><%= p.title %></h4>
+          <p><%= p.notes %></p>
+        </article>
+      <% end %>
+
+    </section>
+
+
+    <hr>
+
+
+  </div>
+
+</div>
+
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <% n = 0 %>
+    <% a = @pic_gals.count %>
+    <% @pic_gals.each do |p| %>
+      <div class="mySlides">
+        <div class="numbertext"><%= "#{n+=1} / #{a}" %></div>
+        <%= image_tag p.img.url, class: 'img-responsive'%>
+      </div>
+    <% end %>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <% n = 0 %>
+    <% @pic_gals.each do |p| %>
+      <div class="column">
+        <%= image_tag p.img.url(:medium), class: 'demo', onclick: "currentSlide(#{n+=1})" %>
+      </div>
+    <% end %>
+  </div>
+</div>

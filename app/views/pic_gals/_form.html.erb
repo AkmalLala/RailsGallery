@@ -1,0 +1,32 @@
+<%= form_with(model: pic_gal, local: true, html: { multipart: true })  do |form| %>
+  <% if pic_gal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pic_gal.errors.count, "error") %> prohibited this pic_gal from being saved:</h2>
+
+      <ul>
+      <% pic_gal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :pic_gal_title, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :img %>
+    <%= form.file_field :img, id: :pic_gal_img, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :pic_gal_notes, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
